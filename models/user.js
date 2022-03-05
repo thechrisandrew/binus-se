@@ -19,7 +19,7 @@ module.exports = {
 			});
 		});
 	},
-    create: function (data) {
+	create: function (data) {
 		return new Promise((resolve, reject) => {
 			pool.getConnection(function (err, conn) {
 				if (err) console.log("error");
