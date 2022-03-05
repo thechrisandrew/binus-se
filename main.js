@@ -18,6 +18,9 @@ app.use(express.urlencoded({ extended: true }));
 // Application Routes
 app.use("/", require("./routes/mainRoute"));
 
+// User Routes
+app.use("/user", require("./routes/authRoute"));
+
 // 404 Page Route
 app.use((req, res) => {
 	res.status(404).send("404 Not Found");
