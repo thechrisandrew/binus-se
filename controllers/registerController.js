@@ -1,10 +1,11 @@
 const Joi = require("joi");
 const bcrypt = require("bcrypt");
 const user = require("../models/user");
-const { json } = require("express/lib/response");
+
 
 module.exports = {
     create_account : async (req, res) => {
+        
         const schema = Joi.object({
             email           : Joi.string().email(),
             password        : Joi.string().alphanum().min(8),
@@ -35,12 +36,24 @@ module.exports = {
             roleId          : 1,
         };
 
-        if(errorData){
-            res.send(validate);
+        const checkRedudancyEmail = await user.checkEmail(data) != "";
+        if(errorData || checkRedudancyEmail){
+            // Biar mengikuti hasil dari joi
+            const message = {
+                "error" : {
+                    "details" : [
+                        {
+                            "message" : "Email must be unique!"
+                        }
+                    ]
+                } 
+            }
+            res.send(checkRedudancyEmail ? message : validate);
         }else{
             try{
                 const result = await user.create(data);
                 res.send(result);
+                // res.send("Test");
             }catch(err){
                 console.log("ERROR : " + err);
                 res.send("Something went wrong!" + err);

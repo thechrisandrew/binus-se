@@ -1,6 +1,24 @@
 const pool = require("../helpers/database");
 
 module.exports = {
+	checkEmail : function (data) {
+		return new Promise((resolve, reject) => {
+			pool.getConnection(function (err, conn) {
+				if (err) console.log("error");
+				else
+					conn.query("SELECT * FROM users WHERE `email` = ?",
+					[data.email],
+					function (err, result, fields) {
+						pool.releaseConnection(conn);
+						if (err) {
+							reject(err);
+						} else {
+							resolve(result);
+						}
+					});
+			});
+		});
+	},
     create: function (data) {
 		return new Promise((resolve, reject) => {
 			pool.getConnection(function (err, conn) {
@@ -21,4 +39,5 @@ module.exports = {
 			});
 		});
 	},
+	
 };
