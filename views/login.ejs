@@ -1,67 +1,83 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-  <script src="/script.js" defer></script>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pi-Oh-Es</title>
-  <link rel="stylesheet" href="/styles.css" type="text/css">
-</head>
-<body>
-  <div class="bg-gradient-to-r from-violet-500 to-violet-300 h-screen w-screen">
-    <form action="#" method="post" class="h-full overflow-hidden">
-      <div class="main block relaitve h-full">
-        <div class="bg-white absolute container max-w-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-2xl rounded-lg">
-          <div class="image">
-            <img src="/assets/Logo.svg" alt="Logo" class="max-w-[267px] m-auto my-5">
-          </div>
-          <hr class="max-w-[400px] m-auto">
-          <div class="mt-5 mb-10">
-            <p class="text-center text-xl text-[#6B7280] text-opacity-70">Welcome!</p>
-            <p class="text-center text-black text-3xl mb-8 font-semibold">Log into your account!</p>
-              <div>
-                <div class="flex flex-col">
-                  <label
-                    for="login"
-                    class="font-bold text-lg text-black text-opacity-70 mx-24 mb-1"
-                    >Email Address</label
-                  >
-                  <input
-                    type="email"
-                    placeholder="Enter Email Address"
-                    name="login"
-                    id="login"
-                    class="text-black text-lg text border-2 border-slate-200 mx-24 py-2 px-4 rounded-lg mb-4 
-                          focus:outline-none focus:border-violet-600"
-                    required
-                  />
-                  
-                  <label
-                    for="Passowrd"
-                    class="font-bold text-lg text-black text-opacity-70 mx-24 mb-1"
-                    >Password</label
-                  >
-                  <input
-                    type="password"
-                    name="Passowrd"
-                    placeholder="Enter Password"
-                    id="Password"
-                    class="text-black text-lg text border-2 border-slate-200 mx-24 py-2 px-4 rounded-lg mb-2 
-                          focus:outline-none focus:border-violet-600"
-                    required
-                  />
-                  <p class="message mx-24 text-pink-600 text-sm"></p>
-                </div>
-              </div>
-          </div>
-          <div id="button" type="submit">
-            <button class="flex flex-col bg-violet-600 text-center  text-white m-auto py-3 px-24 rounded-md shadow-lg text-xl font-semibold">Login
-          </div>
-          <p class="text-center text-xl text-[#6B7280] underline  py-5 mb-5 mt-2 text-opacity-70">Forgot Password?</p>
-        </div>
-      </div>
-    </form>
-</div>  
-</body>
+	<head>
+		<script src="/script.js" defer></script>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Pi-Oh-Es</title>
+		<link rel="stylesheet" href="/styles.css" type="text/css" />
+	</head>
+	<body>
+		<div class="bg-gradient-to-r from-violet-500 to-violet-300 h-screen w-screen">
+			<form action="/auth/login" method="post" class="h-full overflow-hidden">
+				<div class="main block relaitve h-full">
+					<div
+						class="bg-white absolute container max-w-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-2xl rounded-lg"
+					>
+						<div class="image">
+							<img
+								src="/assets/Logo.svg"
+								alt="Logo"
+								class="max-w-[267px] m-auto my-5"
+							/>
+						</div>
+						<hr class="max-w-[400px] m-auto" />
+						<div class="mt-5 mb-10">
+							<p class="text-center text-xl text-[#6B7280] text-opacity-70">
+								Welcome!
+							</p>
+							<p class="text-center text-black text-3xl mb-8 font-semibold">
+								Log into your account!
+							</p>
+							<div>
+								<div class="flex flex-col">
+									<label
+										for="email"
+										class="font-bold text-lg text-black text-opacity-70 mx-24 mb-1"
+										>Email Address</label
+									>
+									<input
+										type="email"
+										placeholder="Enter Email Address"
+										name="email"
+										id="login"
+										class="text-black text-lg text border-2 border-slate-200 mx-24 py-2 px-4 rounded-lg mb-4 focus:outline-none focus:border-violet-600"
+										required
+									/>
+
+									<label
+										for="password"
+										class="font-bold text-lg text-black text-opacity-70 mx-24 mb-1"
+										>Password</label
+									>
+									<input
+										type="password"
+										name="password"
+										placeholder="Enter Password"
+										id="Password"
+										class="text-black text-lg text border-2 border-slate-200 mx-24 py-2 px-4 rounded-lg mb-2 focus:outline-none focus:border-violet-600"
+										required
+									/>
+									<p class="message mx-24 text-pink-600 text-sm"></p>
+								</div>
+							</div>
+						</div>
+						<div id="button" type="submit">
+							<button
+								class="flex flex-col bg-violet-600 text-center text-white m-auto py-3 px-24 rounded-md shadow-lg text-xl font-semibold"
+							>
+								Login
+							</button>
+						</div>
+						<p
+							class="text-center text-xl text-[#6B7280] underline py-5 mb-5 mt-2 text-opacity-70"
+						>
+							Forgot Password?
+						</p>
+					</div>
+				</div>
+			</form>
+		</div>
+	</body>
 </html>
