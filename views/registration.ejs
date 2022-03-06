@@ -1,192 +1,184 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pi-Oh-Es</title>
-    <link rel="stylesheet" href="/styles.css" />
-    <script src="/multistep.js" defer></script>
-  </head>
-  <body>
-    <div
-      class="bg-gradient-to-r from-violet-500 to-violet-300 h-screen w-screen"
-    >
-      <form action="#" method="post" class="h-full overflow-hidden">
-        <!-- Let's Get Started -->
-        <div class="main block relative h-full">
-          <div
-            class="bg-white absolute container max-w-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-2xl rounded-lg animate-sliding"
-          >
-            <div class="image">
-              <img
-                src="/assets/Logo.svg"
-                alt="Logo"
-                class="max-w-[267px] m-auto my-5"
-              />
-            </div>
-            <hr class="max-w-[400px] m-auto" />
-            <div class="mt-5 mb-10">
-              <p class="text-center text-xl text-[#6B7280] text-opacity-70">
-                Welcome!
-              </p>
-              <p class="text-center text-black text-3xl font-semibold">
-                Let's Get Started!
-              </p>
-            </div>
-            <div class="button">
-              <button
-                class="flex flex-col text-xl bg-violet-600 text-center text-white m-auto mb-16 py-3 px-24 rounded-md shadow-lg font-semibold"
-              >
-                Create Account
-              </button>
-            </div>
-          </div>
-        </div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Pi-Oh-Es</title>
+		<link rel="stylesheet" href="/styles.css" />
+		<script src="/multistep.js" defer></script>
+	</head>
+	<body>
+		<div class="bg-gradient-to-r from-violet-500 to-violet-300 h-screen w-screen">
+			<form action="/auth/register" method="POST" class="h-full overflow-hidden">
+				<!-- Let's Get Started -->
+				<div class="main block relative h-full">
+					<div
+						class="bg-white absolute container max-w-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-2xl rounded-lg animate-sliding"
+					>
+						<div class="image">
+							<img
+								src="/assets/Logo.svg"
+								alt="Logo"
+								class="max-w-[267px] m-auto my-5"
+							/>
+						</div>
+						<hr class="max-w-[400px] m-auto" />
+						<div class="mt-5 mb-10">
+							<p class="text-center text-xl text-[#6B7280] text-opacity-70">
+								Welcome!
+							</p>
+							<p class="text-center text-black text-3xl font-semibold">
+								Let's Get Started!
+							</p>
+						</div>
+						<div class="button">
+							<button
+								type="button"
+								class="flex flex-col text-xl bg-violet-600 text-center text-white m-auto mb-16 py-3 px-24 rounded-md shadow-lg font-semibold"
+							>
+								Create Account
+							</button>
+						</div>
+					</div>
+				</div>
 
-        <!-- Registration Name -->
-        <div class="main hidden relative h-full">
-          <div
-            class="bg-white absolute container max-w-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-2xl rounded-lg animate-sliding"
-          >
-            <div class="image">
-              <img
-                src="/assets/Logo.svg"
-                alt="Logo"
-                class="max-w-[267px] m-auto my-5"
-              />
-            </div>
-            <hr class="max-w-[400px] m-auto" />
-            <div class="mt-5 mb-10">
-              <p class="text-center text-xl text-[#6B7280] text-opacity-70">
-                Initial Account Setup
-              </p>
-              <p class="text-center text-black text-3xl font-semibold">
-                Let's get your account ready!
-              </p>
-            </div>
-            <div>
-              <div class="flex flex-col">
-                <label
-                  for="firstname"
-                  class="font-bold text-lg text-black text-opacity-70 mx-24 mb-1"
-                  >First Name</label
-                >
-                <input
-                  type="text"
-                  name="firstname"
-                  placeholder="Enter first name"
-                  class="firstname text-black text-lg text border-2 border-slate-200 mx-24 py-2 px-4 rounded-lg mb-1 
-                        focus:outline-none focus:border-violet-600"
-                  required
-                />
-                <label
-                  for="lastname"
-                  class="font-bold text-lg text-black text-opacity-70 mx-24 mb-1"
-                  >Last Name</label
-                >
-                <input
-                  type="text"
-                  name="lastname"
-                  placeholder="Enter last name"
-                  class="text-black text-lg text border-2 border-slate-200 mx-24 py-2 px-4 rounded-lg mb-4 
-                        focus:outline-none focus:border-violet-600"
-                />
+				<!-- Registration Name -->
+				<div class="main hidden relative h-full">
+					<div
+						class="bg-white absolute container max-w-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-2xl rounded-lg animate-sliding"
+					>
+						<div class="image">
+							<img
+								src="/assets/Logo.svg"
+								alt="Logo"
+								class="max-w-[267px] m-auto my-5"
+							/>
+						</div>
+						<hr class="max-w-[400px] m-auto" />
+						<div class="mt-5 mb-10">
+							<p class="text-center text-xl text-[#6B7280] text-opacity-70">
+								Initial Account Setup
+							</p>
+							<p class="text-center text-black text-3xl font-semibold">
+								Let's get your account ready!
+							</p>
+						</div>
+						<div>
+							<div class="flex flex-col">
+								<label
+									for="firstname"
+									class="font-bold text-lg text-black text-opacity-70 mx-24 mb-1"
+									>First Name</label
+								>
+								<input
+									type="text"
+									name="firstname"
+									placeholder="Enter first name"
+									class="firstname text-black text-lg text border-2 border-slate-200 mx-24 py-2 px-4 rounded-lg mb-1 focus:outline-none focus:border-violet-600"
+									required
+								/>
+								<label
+									for="lastname"
+									class="font-bold text-lg text-black text-opacity-70 mx-24 mb-1"
+									>Last Name</label
+								>
+								<input
+									type="text"
+									name="lastname"
+									placeholder="Enter last name"
+									class="text-black text-lg text border-2 border-slate-200 mx-24 py-2 px-4 rounded-lg mb-4 focus:outline-none focus:border-violet-600"
+								/>
 
-                <label
-                  for="email"
-                  class="font-bold text-lg text-black text-opacity-70 mx-24 mb-1"
-                  >Email Address</label
-                >
-                <input
-                  type="email"
-                  placeholder="Enter email address"
-                  name="email"
-                  class="text-black text-lg text border-2 border-slate-200 mx-24 py-2 px-4 rounded-lg mb-4 
-                        focus:outline-none focus:border-violet-600"
-                  required
-                />
+								<label
+									for="email"
+									class="font-bold text-lg text-black text-opacity-70 mx-24 mb-1"
+									>Email Address</label
+								>
+								<input
+									type="email"
+									placeholder="Enter email address"
+									name="email"
+									class="text-black text-lg text border-2 border-slate-200 mx-24 py-2 px-4 rounded-lg mb-4 focus:outline-none focus:border-violet-600"
+									required
+								/>
+							</div>
+						</div>
+						<div class="button my-9">
+							<button
+								type="button"
+								class="flex flex-col text-xl bg-violet-600 text-center text-white m-auto mb-16 py-3 px-36 rounded-md shadow-lg font-semibold"
+							>
+								Next
+							</button>
+						</div>
+					</div>
+				</div>
 
-              
-              </div>
-            </div>
-            <div class="button my-9" >
-              <button
-                type="button"
-                class="flex flex-col text-xl bg-violet-600 text-center text-white m-auto mb-16 py-3 px-36 rounded-md shadow-lg font-semibold"
-              >
-                Next
-              </button>
-            </div>
-          </div>
-        </div>
+				<!-- Registration Password -->
+				<div class="main hidden relative h-full">
+					<div
+						class="bg-white absolute container max-w-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-2xl rounded-lg animate-sliding"
+					>
+						<div class="image">
+							<img
+								src="/assets/Logo.svg"
+								alt="Logo"
+								class="max-w-[267px] m-auto my-5"
+							/>
+						</div>
+						<hr class="max-w-[400px] m-auto" />
+						<div class="mt-5 mb-10">
+							<p class="text-center text-xl text-[#6B7280] text-opacity-70">
+								Initial Account Setup
+							</p>
+							<p class="text-center text-black text-3xl font-semibold">
+								You are almost there!
+							</p>
+						</div>
+						<div>
+							<div class="flex flex-col">
+								<label
+									for="createPass"
+									class="font-bold text-lg text-black text-opacity-70 mx-24 mb-1"
+									>Admin Password</label
+								>
+								<input
+									type="password"
+									placeholder="Enter password"
+									name="createPass"
+									id="password"
+									class="text-black text-lg text border-2 border-slate-200 mx-24 py-2 px-4 rounded-lg mb-4 focus:outline-none focus:border-violet-600"
+									required
+								/>
 
-        <!-- Registration Password -->
-        <div class="main hidden relative h-full">
-          <div
-            class="bg-white absolute container max-w-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-2xl rounded-lg animate-sliding"
-          >
-            <div class="image">
-              <img
-                src="/assets/Logo.svg"
-                alt="Logo"
-                class="max-w-[267px] m-auto my-5"
-              />
-            </div>
-            <hr class="max-w-[400px] m-auto" />
-            <div class="mt-5 mb-10">
-              <p class="text-center text-xl text-[#6B7280] text-opacity-70">
-                Initial Account Setup
-              </p>
-              <p class="text-center text-black text-3xl font-semibold">
-                You are almost there!
-              </p>
-            </div>
-            <div>
-              <div class="flex flex-col">
-                <label
-                  for="createPass"
-                  class="font-bold text-lg text-black text-opacity-70 mx-24 mb-1"
-                  >Admin Password</label
-                >
-                <input
-                  type="password"
-                  placeholder="Enter password"
-                  name="createPass"
-                  id="password"
-                  class="text-black text-lg text border-2 border-slate-200 mx-24 py-2 px-4 rounded-lg mb-4 
-                        focus:outline-none focus:border-violet-600"
-                  required
-                />
-
-                <label
-                  for="confirmPass"
-                  class="font-bold text-lg text-black text-opacity-70 mx-24 mb-1"
-                  >Confirm Admin Password</label
-                >
-                <input
-                  type="password"
-                  name="confirmPass"
-                  placeholder="Confirm password"
-                  id="check_password"
-                  class="text-black text-lg text border-2 border-slate-200 mx-24 py-2 px-4 rounded-lg mb-2 
-                        focus:outline-none focus:border-violet-600"
-                  required
-                />
-                <p class="message mx-24 text-pink-600 text-sm"></p>
-              </div>
-            </div>
-            <div class="button my-9">
-              <button
-                type="submit"
-                class="flex flex-col text-xl bg-violet-600 text-center text-white m-auto mb-16 py-3 px-32 rounded-md shadow-lg font-semibold"
-              >
-                Finalize
-              </button>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
-  </body>
+								<label
+									for="confirmPass"
+									class="font-bold text-lg text-black text-opacity-70 mx-24 mb-1"
+									>Confirm Admin Password</label
+								>
+								<input
+									type="password"
+									name="confirmPass"
+									placeholder="Confirm password"
+									id="check_password"
+									class="text-black text-lg text border-2 border-slate-200 mx-24 py-2 px-4 rounded-lg mb-2 focus:outline-none focus:border-violet-600"
+									required
+								/>
+								<p class="message mx-24 text-pink-600 text-sm"></p>
+							</div>
+						</div>
+						<div class="button my-9">
+							<button
+								type="submit"
+								class="flex flex-col text-xl bg-violet-600 text-center text-white m-auto mb-16 py-3 px-32 rounded-md shadow-lg font-semibold"
+							>
+								Finalize
+							</button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</body>
 </html>
