@@ -5,10 +5,10 @@ const user = require("../models/user");
 
 module.exports = {
     create_account : async (req, res) => {
-        console.log(req.body);
+        
         const schema = Joi.object({
             email           : Joi.string().email(),
-            password        : Joi.string().alphanum().min(8),
+            password        : Joi.string().min(8),
             confirmPassword : Joi.any().valid(Joi.ref('password')).required().options({ messages: { 'string.confirmPassword': 'password does not match'} }),
             firstName       : Joi.string().required(),
             lastName        : Joi.string().required(),
@@ -48,7 +48,10 @@ module.exports = {
                     ]
                 } 
             }
-            res.send(checkRedudancyEmail ? message : validate);
+            const emailErrorMessage = message["error"]["details"][0]["message"];
+            const joiErrorMessage = validate["error"]["details"][0]["message"];
+            
+            res.send(checkRedudancyEmail ? emailErrorMessage : joiErrorMessage);
         }else{
             try{
                 const result = await user.create(data);
