@@ -4,7 +4,8 @@
 	"description": "Repository for Software Engineering Project at Binus University 🎓",
 	"main": "main.js",
 	"scripts": {
-		"start": "nodemon main.js"
+		"start": "nodemon main.js",
+		"buildcss": "npx tailwindcss -i ./src/input.css -o ./public/styles.css --watch"
 	},
 	"repository": {
 		"type": "git",
@@ -28,5 +29,8 @@
 		"jsonwebtoken": "^8.5.1",
 		"morgan": "^1.10.0",
 		"mysql2": "^2.3.3"
+	},
+	"devDependencies": {
+		"tailwindcss": "^3.0.23"
 	}
 }
