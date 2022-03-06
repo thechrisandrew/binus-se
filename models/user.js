@@ -4,7 +4,7 @@ module.exports = {
 	checkEmail : function (data) {
 		return new Promise((resolve, reject) => {
 			pool.getConnection(function (err, conn) {
-				if (err) console.log("error");
+				if (err) console.log("error : " + err);
 				else
 					conn.query("SELECT * FROM users WHERE `email` = ?",
 					[data.email],
@@ -22,7 +22,7 @@ module.exports = {
 	create: function (data) {
 		return new Promise((resolve, reject) => {
 			pool.getConnection(function (err, conn) {
-				if (err) console.log("error");
+				if (err) console.log("error : " + err);
 				else
 					conn.query(
 						`INSERT INTO users(email, password, firstName, lastName, roleId) VALUES (?,?,?,?,?)`,

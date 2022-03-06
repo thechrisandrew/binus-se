@@ -17,7 +17,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // Application Routes
 app.use("/", require("./routes/mainRoute"));
-app.use("/user", require("./routes/registerRoute"));
 
 app.use("/auth/register", require("./routes/registerRoute"));
 

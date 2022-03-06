@@ -3,7 +3,7 @@ const express = require("express");
 const registerController = require("./../controllers/registerController");
 const router = express.Router();
 
-router.post("/register", registerController.create_account);
+router.post("/", registerController.create_account);
 
 
 router.get("/", (req, res) => {

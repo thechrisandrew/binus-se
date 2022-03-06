@@ -5,7 +5,7 @@ const user = require("../models/user");
 
 module.exports = {
     create_account : async (req, res) => {
-        
+        console.log(req.body);
         const schema = Joi.object({
             email           : Joi.string().email(),
             password        : Joi.string().alphanum().min(8),
