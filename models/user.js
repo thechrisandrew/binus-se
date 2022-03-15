@@ -57,7 +57,7 @@ module.exports = {
                         `SELECT * FROM users WHERE email = ?`,
                         [data.email],
                         async (err, queryResult) => {
-                            console.log(queryResult);
+                            // console.log(queryResult);
                             if (err) {
                                 reject(err);
                             } else {
