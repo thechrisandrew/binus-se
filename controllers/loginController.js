@@ -1,7 +1,12 @@
-const user = require("./../models/user");
+const user = require("../models/user");
 var flash = require("express-flash");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+
+// TODO : 
+// - benerin error handling
+// - benerin bcrypt
+// - benerin console.log
 
 module.exports = {
     login: async (req, res) => {
