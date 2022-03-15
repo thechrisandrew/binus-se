@@ -13,7 +13,7 @@ app.set("view engine", "ejs");
 // Set public folder for static files
 app.use(express.static("public"));
 // parse urlencoded payloads
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({extended: true}));
 
 // Application Routes
 app.use("/", require("./routes/mainRoute"));
@@ -24,9 +24,9 @@ app.use("/auth/login", require("./routes/loginRoute"));
 
 // 404 Page Route
 app.use((req, res) => {
-	res.status(404).send("404 Not Found");
+    res.status(404).send("404 Not Found");
 });
 
 app.listen(port, () => {
-	console.log(`Example app listening on port ${port}`);
+    console.log(`Example app listening on port ${port}`);
 });
