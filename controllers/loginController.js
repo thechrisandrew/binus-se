@@ -24,14 +24,19 @@ module.exports = {
 					res.status(401).render("login");
 				} else {
 					const id = queryResult[0].id;
-					const token = jwt.sign({ id }, process.env.JWT_KEY, {
-						expiresIn: process.env.JWT_EXPIRES_IN,
-					});
+
+					const jwtexp = parseInt(process.env.JWT_COOKIE_EXPIRES);
+
+					const token = jwt.sign(
+						{
+							id: id,
+							exp: Math.floor(Date.now() / 1000) + jwtexp,
+						},
+						process.env.JWT_KEY
+					);
 
 					const cookieOptions = {
-						expires: new Date(
-							Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000
-						),
+						expires: new Date(Date.now() + jwtexp * 24 * 60 * 60 * 1000),
 						httpOnly: true,
 					};
 					res.cookie("jwt", token, cookieOptions);
