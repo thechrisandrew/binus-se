@@ -35,7 +35,8 @@
 						<div class="button">
 							<button
 								type="button"
-								class="flex flex-col text-xl bg-violet-600 text-center text-white m-auto mb-16 py-3 px-24 rounded-md shadow-lg font-semibold"
+								class="flex flex-col text-xl bg-violet-600 hover:bg-violet-700 active:bg-violet-800 focus:ring focus:ring-violet-400
+								text-center text-white m-auto mb-16 py-3 px-24 rounded-md shadow-lg font-semibold"
 							>
 								Create Account
 							</button>
@@ -75,7 +76,7 @@
 									type="text"
 									name="firstName"
 									placeholder="Enter first name"
-									class="firstname text-black text-lg text border-2 border-slate-200 mx-24 py-2 px-4 rounded-lg mb-1 focus:outline-none focus:border-violet-600"
+									class="firstname text-black text-lg text border-2 border-slate-200 mx-24 py-2 px-4 rounded-lg mb-4 focus:outline-none focus:border-violet-600"
 									required
 								/>
 								<label
@@ -107,7 +108,8 @@
 						<div class="button my-9">
 							<button
 								type="button"
-								class="flex flex-col text-xl bg-violet-600 text-center text-white m-auto mb-16 py-3 px-36 rounded-md shadow-lg font-semibold"
+								class="flex flex-col text-xl bg-violet-600 hover:bg-violet-700 active:bg-violet-800 focus:ring focus:ring-violet-400
+								text-center text-white m-auto mb-16 py-3 px-36 rounded-md shadow-lg font-semibold"
 							>
 								Next
 							</button>
@@ -120,13 +122,13 @@
 					<div
 						class="bg-white absolute container max-w-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-2xl rounded-lg animate-sliding"
 					>
-						<div class="image">
-							<img
-								src="/assets/Logo.svg"
-								alt="Logo"
-								class="max-w-[267px] m-auto my-5"
-							/>
-						</div>
+							<div class="image">
+								<img
+									src="/assets/Logo.svg"
+									alt="Logo"
+									class="max-w-[267px] m-auto my-5"
+								/>
+							</div>
 						<hr class="max-w-[400px] m-auto" />
 						<div class="mt-5 mb-10">
 							<p class="text-center text-xl text-[#6B7280] text-opacity-70">
@@ -165,17 +167,19 @@
 									class="text-black text-lg text border-2 border-slate-200 mx-24 py-2 px-4 rounded-lg mb-2 focus:outline-none focus:border-violet-600"
 									required
 								/>
-								<p class="message mx-24 text-pink-600 text-sm"></p>
+								<p class="message mx-24 text-pink-600 text-sm font-semibold text-center mt-5"></p>
 							</div>
 						</div>
-						<div class="button my-9">
+						<div class="button mt-5 mb-3">
 							<button
 								type="submit"
-								class="flex flex-col text-xl bg-violet-600 text-center text-white m-auto mb-16 py-3 px-32 rounded-md shadow-lg font-semibold"
+								class="flex flex-col text-xl bg-violet-600 hover:bg-violet-700 active:bg-violet-800 focus:ring focus:ring-violet-400
+								text-center text-white m-auto py-3 px-32 rounded-md shadow-lg font-semibold"
 							>
-								Finalize
+								Continue
 							</button>
 						</div>
+						<button class="back flex flex-col hover:text-violet-600 hover:font-semibold hover:cursor-pointer underline underline-offset-1 decoration-from-font text-center text-xl m-auto mb-6 -px">Back</button>
 					</div>
 				</div>
 			</form>
