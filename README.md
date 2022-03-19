@@ -2,7 +2,7 @@
 
 Repository for Software Engineering Project at Binus University 🎓
 
-## Project Members:
+## Project Members
 -   Christopher Andrew - @thechrisandrew
 -   Clario Johan - @clariojohan
 -   Alexander Steven Lee - @newdna
