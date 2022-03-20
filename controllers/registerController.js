@@ -53,8 +53,9 @@ module.exports = {
         }else{
             try{
                 const result = await user.create(data);
-                res.send(result);
+                // res.send(result);
                 // res.send("Test");
+                res.redirect('/auth/login')
             }catch(err){
                 console.log("ERROR : " + err);
                 res.send("Something went wrong!" + err);
