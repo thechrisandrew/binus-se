@@ -20,7 +20,22 @@ function changeStep() {
 	}
 }
 
+function backStep() {
+	try {
+			page[2].getElementsByClassName("back")[0].addEventListener("click", () => {
+				page[2].classList.remove("block");
+				page[2].classList.add("hidden");
+				page[2 - 1].classList.remove("hidden");
+				page[2 - 1].classList.add("block");
+				page[2 - 1].classList.add("animate-slidein");
+			});
+	} catch (error) {
+		console.log(error);
+	}
+}
+
 changeStep();
+backStep();
 
 const submit = document.querySelector("form");
 const pw = document.querySelector("#password");
