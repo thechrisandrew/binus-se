@@ -1,6 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
+const path = require('path')
 require("dotenv").config();
 
 // initialize express app
@@ -11,6 +12,7 @@ const port = 3000;
 app.use(morgan("tiny"));
 // set view engine to ejs
 app.set("view engine", "ejs");
+app.set('views', path.join(__dirname, 'views'));
 // Set public folder for static files
 app.use(express.static("public"));
 // parse urlencoded payloads
