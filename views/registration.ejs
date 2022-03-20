@@ -9,32 +9,58 @@
 	</head>
 	<body>
 		<div class="bg-gradient-to-r from-violet-500 to-violet-300 h-screen w-screen">
-			<form action="/auth/register" method="POST" class="h-full overflow-hidden">
+			<form action="/auth/register" method="POST" class="h-full overflow-auto">
 				<!-- Let's Get Started -->
-				<div class="main block relative h-full">
+				<div class="main block relative h-full overflow-auto">
 					<div
-						class="bg-white absolute container max-w-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-2xl rounded-lg animate-sliding"
+						class="bg-white absolute container overflow-auto
+						max-w-[270px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+						sm:max-w-[300px] sm:top-1/2 sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2
+						md:max-w-sm md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2
+						lg:max-w-md lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2
+						xl:max-w-lg xl:top-1/2 xl:left-1/2 xl:-translate-x-1/2 xl:-translate-y-1/2
+						2xl:max-w-lg 2xl:top-1/2 2xl:left-1/2 2xl:-translate-x-1/2 2xl:-translate-y-1/2 
+						shadow-2xl rounded-lg animate-sliding"
 					>
 						<div class="image">
 							<img
 								src="/assets/Logo.svg"
 								alt="Logo"
-								class="max-w-[267px] m-auto my-5"
+								class="
+								max-w-[120px] m-auto my-2
+								sm:max-w-[140px] sm:m-auto sm:my-3
+								md:max-w-[180px] md:m-auto md:my-3
+								lg:max-w-[220px] lg:m-auto lg:my-3
+								xl:max-w-[267px] xl:m-auto xl:my-3
+								2xl:max-w-[267px] 2xl:m-auto 2xl:my-3
+								"
 							/>
 						</div>
-						<hr class="max-w-[400px] m-auto" />
-						<div class="mt-5 mb-10">
-							<p class="text-center text-xl text-[#6B7280] text-opacity-70">
+						<hr class=" max-w-[180px] m-auto
+									sm:max-w-[200px] sm:m-auto
+									md:max-w-[250px] md:m-auto
+									lg:max-w-[300px] lg:m-auto
+									xl:max-w-[400px] xl:m-auto"/>
+						<div class="mt-2 mb-5 sm:mb-5 md:mb-5 lg:mb-8 xl:mb-10">
+							<p class="text-center text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl
+							text-[#6B7280] text-opacity-70">
 								Welcome!
 							</p>
-							<p class="text-center text-black text-3xl font-semibold">
+							<p class="text-center text-black text-sm sm:text-base md:text-lg lg:text-2xl xl:text-3xl font-semibold">
 								Let's Get Started!
 							</p>
 						</div>
 						<div class="button">
 							<button
 								type="button"
-								class="flex flex-col text-xl bg-violet-600 hover:bg-violet-700 active:bg-violet-800 focus:ring focus:ring-violet-400 text-center text-white m-auto mb-16 py-3 px-24 rounded-md shadow-lg font-semibold"
+								class="flex flex-col bg-violet-600 hover:bg-violet-700 active:bg-violet-800 focus:ring focus:ring-violet-400 text-center text-white 
+								text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl
+								m-auto mb-5 py-2 px-8
+								sm:mb-6 sm:py-2 sm:px-12
+								md:mb-7 md:py-2 md:px-16
+								lg:mb-8 lg:py-3 lg:px-20
+								xl:mb-10 xl:py-3 xl:px-24
+								rounded-sm sm:rounded-md shadow-lg font-semibold"
 							>
 								Create Account
 							</button>
@@ -45,21 +71,38 @@
 				<!-- Registration Name -->
 				<div class="main hidden relative h-full">
 					<div
-						class="bg-white absolute container max-w-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-2xl rounded-lg animate-sliding"
+						class="bg-white absolute container 
+						max-w-[270px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+						sm:max-w-[300px] sm:top-1/2 sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2
+						md:max-w-sm md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2
+						lg:max-w-md lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2
+						xl:max-w-lg xl:top-1/2 xl:left-1/2 xl:-translate-x-1/2 xl:-translate-y-1/2
+						2xl:max-w-lg 2xl:top-1/2 2xl:left-1/2 2xl:-translate-x-1/2 2xl:-translate-y-1/2 
+						shadow-2xl rounded-lg animate-sliding"
 					>
 						<div class="image">
 							<img
 								src="/assets/Logo.svg"
 								alt="Logo"
-								class="max-w-[267px] m-auto my-5"
+								class="max-w-[120px] m-auto my-2
+								sm:max-w-[140px] sm:m-auto sm:my-3
+								md:max-w-[180px] md:m-auto md:my-3
+								lg:max-w-[220px] lg:m-auto lg:my-3
+								xl:max-w-[267px] xl:m-auto xl:my-3
+								2xl:max-w-[267px] 2xl:m-auto 2xl:my-3"
 							/>
 						</div>
-						<hr class="max-w-[400px] m-auto" />
-						<div class="mt-5 mb-10">
-							<p class="text-center text-xl text-[#6B7280] text-opacity-70">
+						<hr class="max-w-[180px] m-auto
+								sm:max-w-[200px] sm:m-auto
+								md:max-w-[250px] md:m-auto
+								lg:max-w-[300px] lg:m-auto
+								xl:max-w-[400px] xl:m-auto" />
+						<div class="mt-2 mb-5 sm:mb-5 md:mb-5 lg:mb-8 xl:mb-10">
+							<p class="text-center text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 
+							text-[#6B7280] text-opacity-70">
 								Initial Account Setup
 							</p>
-							<p class="text-center text-black text-3xl font-semibold">
+							<p class="text-center text-black text-sm sm:text-base md:text-lg lg:text-2xl xl:text-3xl font-semibold">
 								Let's get your account ready!
 							</p>
 						</div>
@@ -67,46 +110,62 @@
 							<div class="flex flex-col">
 								<label
 									for="firstname"
-									class="font-bold text-lg text-black text-opacity-70 mx-24 mb-1"
+									class="font-semibold text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl
+									text-black text-opacity-70 mx-12 sm:mx-14 md:mx-16 lg:mx-20 xl:mx-24 mb-1"
 									>First Name</label
 								>
 								<input
 									type="text"
 									name="firstName"
 									placeholder="Enter first name"
-									class="firstname text-black text-lg text border-2 border-slate-200 mx-24 py-2 px-4 rounded-lg mb-4 focus:outline-none focus:border-violet-600"
+									class="firstname text-black text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 
+									mx-12 sm:mx-14 md:mx-16 lg:mx-20 xl:mx-24 py-1 lg:py-2 px-2 rounded-md sm:rounded-lg
+									text border-2 border-slate-200 mb-4 focus:outline-none focus:border-violet-600"
 									required
 								/>
 								<label
 									for="lastname"
-									class="font-bold text-lg text-black text-opacity-70 mx-24 mb-1"
+									class="font-semibold text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 
+									text-black text-opacity-70 mx-12 sm:mx-14 md:mx-16 lg:mx-20 xl:mx-24 mb-1"
 									>Last Name</label
 								>
 								<input
 									type="text"
 									name="lastName"
 									placeholder="Enter last name"
-									class="text-black text-lg text border-2 border-slate-200 mx-24 py-2 px-4 rounded-lg mb-4 focus:outline-none focus:border-violet-600"
+									class="text-black text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl
+									mx-12 sm:mx-14 md:mx-16 lg:mx-20 xl:mx-24 py-1 lg:py-2 px-2 rounded-md sm:rounded-lg
+									text border-2 border-slate-200 mb-4 focus:outline-none focus:border-violet-600"
 								/>
 
 								<label
 									for="email"
-									class="font-bold text-lg text-black text-opacity-70 mx-24 mb-1"
+									class="font-semibold text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 
+									text-black text-opacity-70 mx-12 sm:mx-14 md:mx-16 lg:mx-20 xl:mx-24 mb-1"
 									>Email Address</label
 								>
 								<input
 									type="email"
 									placeholder="Enter email address"
 									name="email"
-									class="text-black text-lg text border-2 border-slate-200 mx-24 py-2 px-4 rounded-lg mb-4 focus:outline-none focus:border-violet-600"
+									class="text-black text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl
+									mx-12 sm:mx-14 md:mx-16 lg:mx-20 xl:mx-24 py-1 lg:py-2 px-2 rounded-md sm:rounded-lg
+									text border-2 border-slate-200 mb-4 focus:outline-none focus:border-violet-600"
 									required
 								/>
 							</div>
 						</div>
-						<div class="button my-9">
+						<div class="button mt-2 lg:mt-5">
 							<button
 								type="button"
-								class="flex flex-col text-xl bg-violet-600 hover:bg-violet-700 active:bg-violet-800 focus:ring focus:ring-violet-400 text-center text-white m-auto mb-16 py-3 px-36 rounded-md shadow-lg font-semibold"
+								class="flex flex-col bg-violet-600 hover:bg-violet-700 active:bg-violet-800 focus:ring focus:ring-violet-400 text-center text-white 
+								text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl
+								m-auto mb-5 py-2 px-12
+								sm:mb-6 sm:py-2 sm:px-14
+								md:mb-7 md:py-2 md:px-16
+								lg:mb-8 lg:py-3 lg:px-20
+								xl:mb-10 xl:py-3 xl:px-24
+								rounded-sm sm:rounded-md shadow-lg font-semibold"
 							>
 								Next
 							</button>
@@ -117,21 +176,38 @@
 				<!-- Registration Password -->
 				<div class="main hidden relative h-full">
 					<div
-						class="bg-white absolute container max-w-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-2xl rounded-lg animate-sliding"
+						class="bg-white absolute container 
+						max-w-[270px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+						sm:max-w-[300px] sm:top-1/2 sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2
+						md:max-w-sm md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2
+						lg:max-w-md lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2
+						xl:max-w-lg xl:top-1/2 xl:left-1/2 xl:-translate-x-1/2 xl:-translate-y-1/2
+						2xl:max-w-lg 2xl:top-1/2 2xl:left-1/2 2xl:-translate-x-1/2 2xl:-translate-y-1/2 
+						shadow-2xl rounded-lg animate-sliding"
 					>
 						<div class="image">
 							<img
 								src="/assets/Logo.svg"
 								alt="Logo"
-								class="max-w-[267px] m-auto my-5"
+								class="max-w-[120px] m-auto my-2
+								sm:max-w-[140px] sm:m-auto sm:my-3
+								md:max-w-[180px] md:m-auto md:my-3
+								lg:max-w-[220px] lg:m-auto lg:my-3
+								xl:max-w-[267px] xl:m-auto xl:my-3
+								2xl:max-w-[267px] 2xl:m-auto 2xl:my-3"
 							/>
 						</div>
-						<hr class="max-w-[400px] m-auto" />
-						<div class="mt-5 mb-10">
-							<p class="text-center text-xl text-[#6B7280] text-opacity-70">
+						<hr class="max-w-[180px] m-auto
+								sm:max-w-[200px] sm:m-auto
+								md:max-w-[250px] md:m-auto
+								lg:max-w-[300px] lg:m-auto
+								xl:max-w-[400px] xl:m-auto" />
+						<div class="mt-2 mb-5 sm:mb-5 md:mb-5 lg:mb-8 xl:mb-10">
+							<p class="text-center text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl
+							text-[#6B7280] text-opacity-70">
 								Initial Account Setup
 							</p>
-							<p class="text-center text-black text-3xl font-semibold">
+							<p class="text-center text-black text-sm sm:text-base md:text-lg lg:text-2xl xl:text-3xl font-semibold">
 								You are almost there!
 							</p>
 						</div>
@@ -139,7 +215,8 @@
 							<div class="flex flex-col">
 								<label
 									for="createPass"
-									class="font-bold text-lg text-black text-opacity-70 mx-24 mb-1"
+									class="font-semibold text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 
+									text-black text-opacity-70 mx-12 sm:mx-14 md:mx-16 lg:mx-20 xl:mx-24 mb-1"
 									>Admin Password</label
 								>
 								<input
@@ -147,13 +224,16 @@
 									placeholder="Enter password"
 									name="password"
 									id="password"
-									class="text-black text-lg text border-2 border-slate-200 mx-24 py-2 px-4 rounded-lg mb-4 focus:outline-none focus:border-violet-600"
+									class="text-black text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl
+									mx-12 sm:mx-14 md:mx-16 lg:mx-20 xl:mx-24 py-1 lg:py-2 px-2 rounded-md sm:rounded-lg
+									text border-2 border-slate-200 mb-4 focus:outline-none focus:border-violet-600"
 									required
 								/>
 
 								<label
 									for="confirmPass"
-									class="font-bold text-lg text-black text-opacity-70 mx-24 mb-1"
+									class="font-semibold text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 
+									text-black text-opacity-70 mx-12 sm:mx-14 md:mx-16 lg:mx-20 xl:mx-24 mb-1"
 									>Confirm Admin Password</label
 								>
 								<input
@@ -161,24 +241,35 @@
 									name="confirmPassword"
 									placeholder="Confirm password"
 									id="check_password"
-									class="text-black text-lg text border-2 border-slate-200 mx-24 py-2 px-4 rounded-lg mb-2 focus:outline-none focus:border-violet-600"
+									class="text-black text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl
+									mx-12 sm:mx-14 md:mx-16 lg:mx-20 xl:mx-24 py-1 lg:py-2 px-2 rounded-md sm:rounded-lg
+									text border-2 border-slate-200 mb-4 focus:outline-none focus:border-violet-600"
 									required
 								/>
 								<p
-									class="message mx-24 text-pink-600 text-sm font-semibold text-center mt-5"
+									class="message mx-20 text-pink-600 text-xs sm:text-sm font-semibold text-center mt-1"
 								></p>
 							</div>
 						</div>
-						<div class="button mt-5 mb-3">
+						<div class="button mt-2 lg:mt-4">
 							<button
 								type="submit"
-								class="flex flex-col text-xl bg-violet-600 hover:bg-violet-700 active:bg-violet-800 focus:ring focus:ring-violet-400 text-center text-white m-auto py-3 px-32 rounded-md shadow-lg font-semibold"
+								class="flex flex-col bg-violet-600 hover:bg-violet-700 active:bg-violet-800 focus:ring focus:ring-violet-400 text-center text-white
+								text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl
+								m-auto mb-3 py-2 px-12
+								sm:mb-4 sm:py-2 sm:px-14
+								md:mb-4 md:py-2 md:px-16
+								lg:mb-4 lg:py-3 lg:px-20
+								xl:mb-5 xl:py-3 xl:px-24
+								rounded-sm sm:rounded-md shadow-lg font-semibold"
 							>
 								Continue
 							</button>
 						</div>
 						<button
-							class="back flex flex-col hover:text-violet-600 hover:font-semibold hover:cursor-pointer underline underline-offset-1 decoration-from-font text-center text-xl m-auto mb-6 -px"
+							class="back flex flex-col hover:text-violet-600 hover:font-semibold hover:cursor-pointer underline underline-offset-1 decoration-from-font text-center
+							text-sm sm:text-base md:text-lg lg:text-xl
+							m-auto mb-6"
 						>
 							Back
 						</button>
