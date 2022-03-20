@@ -48,10 +48,8 @@ module.exports = {
                     ]
                 } 
             }
-            const emailErrorMessage = message["error"]["details"][0]["message"];
-            const joiErrorMessage = validate["error"]["details"][0]["message"];
-            
-            res.send(checkRedudancyEmail ? emailErrorMessage : joiErrorMessage);
+
+            res.send(checkRedudancyEmail ? message["error"]["details"][0]["message"] : validate["error"]["details"][0]["message"]);
         }else{
             try{
                 const result = await user.create(data);
