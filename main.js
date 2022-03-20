@@ -1,6 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
+const session = require("express-session")
 const path = require('path')
 require("dotenv").config();
 
@@ -19,6 +20,12 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 // use cookie-parser
 app.use(cookieParser());
+
+app.use(session({
+	secret: process.env.SESSION_SECRET,
+	resave: "false",
+	saveUninitialized: false
+  }))
 
 // Application Routes
 

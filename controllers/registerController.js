@@ -48,8 +48,10 @@ module.exports = {
                     ]
                 } 
             }
-
-            res.send(checkRedudancyEmail ? message["error"]["details"][0]["message"] : validate["error"]["details"][0]["message"]);
+            
+            // res.send(checkRedudancyEmail ? message["error"]["details"][0]["message"] : validate["error"]["details"][0]["message"]);
+            req.session.error = checkRedudancyEmail ? message["error"]["details"][0]["message"] : validate["error"]["details"][0]["message"]
+            res.redirect('/auth/register')
         }else{
             try{
                 const result = await user.create(data);
@@ -58,7 +60,9 @@ module.exports = {
                 res.redirect('/auth/login')
             }catch(err){
                 console.log("ERROR : " + err);
-                res.send("Something went wrong!" + err);
+                // res.send("Something went wrong!" + err);
+                req.session.error = "Something went wrong"
+                res.redirect('/auth/register')
             }    
         }
     }
