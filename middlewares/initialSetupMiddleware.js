@@ -2,9 +2,7 @@ const user = require('./../models/user')
 
 const initialSetupOnly = async (req,res,next) => {
 
-    const queryResult = await user.checkUserExists;
-    
-    console.log(queryResult)
+    const queryResult = await user.checkUserExists();
 
     if (queryResult == "") {
         next();

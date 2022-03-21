@@ -12,7 +12,7 @@ module.exports = {
 			};
 
 			if (!email || !password) {
-				return res.status(400).render("login");
+				return res.status(400).redirect("login");
 			}
 
 			const queryResult = await user.auth(data);
@@ -21,7 +21,7 @@ module.exports = {
 				res.send("Email or Password is incorrect!");
 			} else {
 				if (!(await bcrypt.compare(data.password, queryResult[0].password))) {
-					res.status(401).render("login");
+					res.status(401).redirect("login");
 				} else {
 					const id = queryResult[0].id;
 
