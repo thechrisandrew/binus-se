@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
 	req.session.toast ? (toast = req.session.toast) : (toast = {});
 	req.session.toast = {};
 
-	res.render("login", {toast});
+	res.render("login", { toast });
 });
 
 module.exports = router;

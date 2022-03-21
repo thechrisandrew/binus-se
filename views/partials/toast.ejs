@@ -1,31 +1,25 @@
-<%if (toast.messages) { %>
-    <% toast.messages.forEach(function(message, key) { %>
-        <% if (message.type == "error") { %> 
-            <div class="absolute top-2 right-2 z-10">
-                <div class="bg-red-100 border border-red-400 text-red-700 px-3 py-2 md:px-4 md:py-4 rounded relative" role="alert" id="<%= key %>">
-                    <span class="inline-block align-middle mr-8 text-sm md:text-base">
-                        <%= message.content %> 
+<div class="absolute top-2 right-2 z-10">
+	<%if (toast.messages) { %>
+        <% toast.messages.forEach(function(message, key) { %> 
+            <% if(message.type == "error") { %>
+                <div class="toast bg-red-100 border border-red-400 text-red-700 px-3 py-2 md:px mt-2-4 md:py-4 rounded relative flex justify-items-center items-center" role="alert">
+                    <span class="align-middle mr-8 text-sm md:text-base">
+                        <%= message.content %>
                     </span>
-                    <button class="absolute bg-transparent text-2xl font-semibold leading-none right-2 top-2 md:top-1 outline-none focus:outline-none">
-                        <span>×</span>
+                    <button class="bg-transparent text-base font-semibold leading-none right-2 outline-none focus:outline-none">
+                        <i class="fa-solid fa-xmark"></i>
                     </button>
-                  </div>
-            </div>
-        <% } else if (message.type == "success") { %>
-            <div class="absolute top-2 right-2 z-10">
-                <div class="bg-green-100 border border-green-400 text-green-700 px-3 py-2 md:px-4 md:py-4 rounded relative" role="alert" id="<%= key %>">
-                    <span class="inline-block align-middle mr-8 text-sm md:text-base">
-                        <%= message.content %> 
+                </div>
+            <% } else if (message.type == "success") { %>
+                <div class="toast bg-green-100 border border-green-400 text-green-700 px-3 py-2 mt-2 md:px-4 md:py-4 rounded relative flex justify-items-center items-center" role="alert">
+                    <span class="align-middle mr-8 text-sm md:text-base">
+                        <%= message.content %>
                     </span>
-                    <button class="absolute bg-transparent text-2xl font-semibold leading-none right-2 top-2 md:top-1 outline-none focus:outline-none">
-                        <span>×</span>
+                    <button class="bg-transparent text-base font-semibold leading-none right-2 outline-none focus:outline-none">
+                        <i class="fa-solid fa-xmark"></i>
                     </button>
-                  </div>
-            </div>
-        <% } %> 
-    <% }); %>
-<% } %>
-
-<script>
-    
-</script>
+                </div>
+            <% }; %>
+        <% }); %>
+    <% } %>
+</div>
