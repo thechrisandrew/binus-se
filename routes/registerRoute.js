@@ -3,16 +3,18 @@ const express = require("express");
 const registerController = require("./../controllers/registerController");
 const router = express.Router();
 
+const { initialSetupOnly } = require("./../middlewares/initialSetupMiddleware");
+
 router.post("/", registerController.create_account);
 
-router.get("/", (req, res) => {
+router.get("/", initialSetupOnly, (req, res) => {
     console.log(req.session);
 
-    var error;
-    req.session.error ? (error = req.session.error) : (error = null);
-    req.session.error = "";
+    var errors = [];
+    req.session.errors ? (errors = req.session.errors) : (errors = []);
+    req.session.errors = [];
 
-    res.render("registration", { error });
+    res.render("registration", { errors });
 });
 
 module.exports = router;

@@ -1,8 +1,8 @@
-<div class="absolute top-2 left-1/2 transform -translate-x-1/2 w-max">
-
-    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-sm md:text-base" role="alert">
-        <strong class="font-bold"><%= error %></strong>
-        <!-- <span class="inline">Something went wrong.</span> -->
-    </div>
-
-</div>	
+<div class="bg-red-100 border border-red-400 text-red-700 px-3 py-2 md:px-4 md:py-4 rounded relative" role="alert" id="<%= id %>">
+  <span class="inline-block align-middle mr-8 text-sm md:text-base">
+    <%= error %> 
+  </span>
+  <button class="absolute bg-transparent text-2xl font-semibold leading-none right-2 top-2 md:top-1 outline-none focus:outline-none">
+    <span>×</span>
+  </button>
+</div>

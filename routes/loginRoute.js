@@ -5,7 +5,14 @@ const router = express.Router();
 router.post("/", userController.login);
 
 router.get("/", (req, res) => {
-    res.render("login");
+
+    console.log(req.session);
+
+    var errors = [];
+    req.session.errors ? (errors = req.session.errors) : (errors = []);
+    req.session.errors = [];
+
+    res.render("login", {errors});
 });
 
 module.exports = router;

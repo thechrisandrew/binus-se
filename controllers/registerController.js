@@ -50,7 +50,10 @@ module.exports = {
             }
             
             // res.send(checkRedudancyEmail ? message["error"]["details"][0]["message"] : validate["error"]["details"][0]["message"]);
-            req.session.error = checkRedudancyEmail ? message["error"]["details"][0]["message"] : validate["error"]["details"][0]["message"]
+            errors = []
+            errors.push(checkRedudancyEmail ? message["error"]["details"][0]["message"] : validate["error"]["details"][0]["message"])
+            
+            req.session.errors = errors
             res.redirect('/auth/register')
         }else{
             try{
@@ -61,7 +64,10 @@ module.exports = {
             }catch(err){
                 console.log("ERROR : " + err);
                 // res.send("Something went wrong!" + err);
-                req.session.error = "Something went wrong"
+
+                errors.push("Something went wrong!")
+
+                req.session.errors = errors
                 res.redirect('/auth/register')
             }    
         }
