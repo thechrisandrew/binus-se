@@ -8,8 +8,6 @@ const { initialSetupOnly } = require("./../middlewares/initialSetupMiddleware");
 router.post("/", registerController.create_account);
 
 router.get("/", initialSetupOnly, (req, res) => {
-    console.log(req.session);
-
     var errors = [];
     req.session.errors ? (errors = req.session.errors) : (errors = []);
     req.session.errors = [];

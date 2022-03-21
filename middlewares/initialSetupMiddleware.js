@@ -7,9 +7,7 @@ const initialSetupOnly = async (req,res,next) => {
     if (queryResult == "") {
         next();
 	} else {
-
         req.session.errors = ['Admin user is already registered']
-
 		res.redirect("/auth/login");
 	}
 }
