@@ -11,17 +11,25 @@ module.exports = {
 				password: password,
 			};
 
+			var errors = []
+
 			if (!email || !password) {
-				return res.status(400).redirect("login");
+				errors.push("Email/Password can't be empty")
+				req.session.errors = errors
+				res.status(400).redirect("/auth/login");
 			}
 
 			const queryResult = await user.auth(data);
 
 			if (queryResult == "") {
-				res.send("Email or Password is incorrect!");
+				errors.push("Email/Password incorrect")
+				req.session.errors = errors
+				res.status(400).redirect("/auth/login");
 			} else {
 				if (!(await bcrypt.compare(data.password, queryResult[0].password))) {
-					res.status(401).redirect("login");
+					errors.push("Email/Password incorrect")
+					req.session.errors = errors
+					res.status(400).redirect("/auth/login");
 				} else {
 					const id = queryResult[0].id;
 
@@ -40,6 +48,7 @@ module.exports = {
 						httpOnly: true,
 					};
 					res.cookie("jwt", token, cookieOptions);
+
 					res.status(200).redirect("/");
 				}
 			}
