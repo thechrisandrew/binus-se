@@ -5,11 +5,11 @@ const router = express.Router();
 router.post("/", userController.login);
 
 router.get("/", (req, res) => {
-    var errors = [];
-    req.session.errors ? (errors = req.session.errors) : (errors = []);
-    req.session.errors = [];
+	var toast = {};
+	req.session.toast ? (toast = req.session.toast) : (toast = {});
+	req.session.toast = {};
 
-    res.render("login", {errors});
+	res.render("login", {toast});
 });
 
 module.exports = router;

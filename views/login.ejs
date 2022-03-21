@@ -10,13 +10,7 @@
 	<body>
 		<div class="bg-gradient-to-r from-violet-500 to-violet-300 h-screen w-screen">
 
-			<%if (errors.length > 0) { %>
-				<% errors.forEach(function(error, key) { console.log(error)%>
-					<div class="absolute top-2 right-2 z-10">
-						<%- include('partials/alert-danger.ejs', {error:error, id:key}) %>
-					</div>
-				<% }); %>
-			<% } %>
+			<%- include('partials/toast.ejs', {toast}) %>
 						
 			<form action="/auth/login" method="post" class="h-full overflow-hidden">
 				<div class="main block relaitve h-full">

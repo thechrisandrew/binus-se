@@ -8,11 +8,11 @@ const { initialSetupOnly } = require("./../middlewares/initialSetupMiddleware");
 router.post("/", registerController.create_account);
 
 router.get("/", initialSetupOnly, (req, res) => {
-    var errors = [];
-    req.session.errors ? (errors = req.session.errors) : (errors = []);
-    req.session.errors = [];
+	var toast = {};
+	req.session.toast ? (toast = req.session.toast) : (toast = {});
+	req.session.toast = {};
 
-    res.render("registration", { errors });
+	res.render("registration", {toast});
 });
 
 module.exports = router;
