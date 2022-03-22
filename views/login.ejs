@@ -6,9 +6,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Pi-Oh-Es</title>
 		<link rel="stylesheet" href="/styles.css" type="text/css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	</head>
 	<body>
 		<div class="bg-gradient-to-r from-violet-500 to-violet-300 h-screen w-screen">
+
+			<%- include('partials/toast.ejs', {toast}) %>
+						
 			<form action="/auth/login" method="post" class="h-full overflow-hidden">
 				<div class="main block relaitve h-full">
 					<div
@@ -23,7 +27,7 @@
 					>
 						<div class="image">
 							<img
-								src="/assets/Logo.svg"
+								src="/assets/Logo.svg"prettier save
 								alt="Logo"
 								class="max-w-[120px] m-auto my-2
 								sm:max-w-[140px] sm:m-auto sm:my-3
@@ -99,18 +103,19 @@
 								Login
 							</button>
 						</div>
-						<p
+						<a
 							class="forgotPassword flex flex-col hover:text-violet-600 hover:font-semibold hover:cursor-pointer underline underline-offset-1 decoration-from-font text-center
 							text-sm sm:text-base md:text-lg lg:text-xl opacity-60
 							m-auto mb-6"
 						>
 							Forgot Password?
-						</p>
+						</a>
 					</div>
 				</div>
 			</form>
 		</div>
 
 		<script src="/script.js"></script>
+        <script src="/toast.js"></script>
 	</body>
 </html>

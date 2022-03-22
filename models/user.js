@@ -68,4 +68,24 @@ module.exports = {
             });
         });
     },
+
+    checkUserExists: function() {
+        return new Promise((resolve, reject) => {
+            pool.getConnection(function (err, conn) {
+                if (err) console.log(err);
+                else
+                    conn.query(
+                        `SELECT * FROM users`,
+                        async (err, queryResult) => {
+                            console.log(queryResult);
+                            if (err) {
+                                reject(err);
+                            } else {
+                                resolve(queryResult);
+                            }
+                        }
+                    );
+            });
+        });
+    }
 };

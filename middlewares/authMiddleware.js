@@ -7,6 +7,7 @@ const requireAuth = (req, res, next) => {
 		jwt.verify(token, process.env.JWT_KEY, (err, decodedToken) => {
 			if (err) {
 				console.log(err);
+				res.clearCookie("jwt");
 				res.redirect("/auth/login");
 			} else {
 				console.log(decodedToken);
