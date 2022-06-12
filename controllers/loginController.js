@@ -11,21 +11,31 @@ module.exports = {
 				password: password,
 			};
 
+			var toast = {
+                messages: []
+            }
+
 			if (!email || !password) {
-				return res.status(400).render("login");
+				toast.messages.push({content: "Email/Password can't be empty", type: "error"})
+				req.session.toast = toast
+				res.status(400).redirect("/auth/login");
 			}
 
 			const queryResult = await user.auth(data);
 
 			if (queryResult == "") {
-				res.send("Email or Password is incorrect!");
+				toast.messages.push({content: "Email/Password incorrect" , type: "error"})
+				req.session.toast = toast
+				res.status(400).redirect("/auth/login");
 			} else {
 				if (!(await bcrypt.compare(data.password, queryResult[0].password))) {
-					res.status(401).render("login");
+					toast.messages.push({content: "Email/Password incorrect" , type: "error"})
+					req.session.toast = toast
+					res.status(400).redirect("/auth/login");
 				} else {
 					const id = queryResult[0].id;
 
-					const jwtexp = parseInt(process.env.JWT_COOKIE_EXPIRES);
+					const jwtexp = parseInt(process.env.JWT_EXPIRES);
 
 					const token = jwt.sign(
 						{
@@ -40,6 +50,7 @@ module.exports = {
 						httpOnly: true,
 					};
 					res.cookie("jwt", token, cookieOptions);
+
 					res.status(200).redirect("/");
 				}
 			}
