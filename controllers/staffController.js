@@ -50,18 +50,15 @@ module.exports = {
 					],
 				},
 			};
-			res.status(400);
-			res.send(checkRedudancyEmail ? message : validate);
+			res.status(400).send(checkRedudancyEmail ? message : validate);
 		} else {
 
 			try {
 				await user.create(data);
-				res.status(200);
-                res.send({message : "Successfully registered staff!"});
+				res.status(200).send({message : "Successfully registered staff!"});
 			} catch (err) {
 				// console.log("ERROR : " + err);
-				res.status(500);
-				res.send({message : err});
+				res.status(500).send({message : err});
 			}
 		}
     },
@@ -69,11 +66,9 @@ module.exports = {
     selectStaff: async function (_, res) {
         try{
             const result = await user.selectStaffOnly();
-            res.status(200);
-            res.send(result);
+            res.status(200).send(result);
         } catch (err) {
-            res.status(500);
-            res.send({message : err});
+            res.status(500).send({message : err});
         }
     },
 
@@ -85,11 +80,9 @@ module.exports = {
         };
         try{
             await user.updateStaff(data);
-            res.status(200);
-            res.send({message : "Successfully updated staff!"});
+            res.status(200).send({message : "Successfully updated staff!"});
         } catch (err) {
-            res.status(500);
-            res.send({message : err});
+            res.status(500).send({message : err});
         }
     },
 
@@ -97,11 +90,9 @@ module.exports = {
         const id = req.params.id;
         try{
             await user.delete(id);
-            res.status(200);
-            res.send({message : "Successfully deleted staff!"});
+            res.status(200).send({message : "Successfully deleted staff!"});
         } catch (err) {
-            res.status(500);
-            res.send({message : err});
+            res.status(500).send({message : err});
         }
     }
 };
