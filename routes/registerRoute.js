@@ -7,12 +7,4 @@ const { initialSetupOnly } = require("./../middlewares/initialSetupMiddleware");
 
 router.post("/", registerController.create_account);
 
-router.get("/", initialSetupOnly, (req, res) => {
-	var toast = {};
-	req.session.toast ? (toast = req.session.toast) : (toast = {});
-	req.session.toast = {};
-
-	res.render("registration", {toast});
-});
-
 module.exports = router;
