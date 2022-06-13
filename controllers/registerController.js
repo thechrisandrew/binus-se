@@ -39,10 +39,6 @@ module.exports = {
 
 		const checkRedudancyEmail = (await user.checkEmail(data)) != "";
 
-        var toast = {
-            messages: []
-        };
-
 		if (errorData || checkRedudancyEmail) {
 			// Biar mengikuti hasil dari joi
 			const message = {
@@ -60,7 +56,6 @@ module.exports = {
 
 			try {
 				const result = await user.create(data);
-                req.session.toast = toast;
 				res.status(200);
                 res.send({message : "Successfully registered user!"});
 			} catch (err) {

@@ -35,6 +35,8 @@ app.use("/auth/register", require("./routes/registerRoute"));
 
 app.use("/auth/login", require("./routes/loginRoute"));
 
+app.use("/staff", require("./routes/staffRoute"));
+
 app.use("/", require("./routes/mainRoute"));
 
 // 404 Page Route
