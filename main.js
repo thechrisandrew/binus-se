@@ -3,6 +3,7 @@ const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const path = require("path");
+var cors = require("cors");
 require("dotenv").config();
 
 // initialize express app
