@@ -5,10 +5,10 @@ module.exports = {
     listProduct: async (req, res) => {
         try {
             const result = await product.listProduct(); // ini nama function di model
-            res.send(result);
+            res.status(200).send(result);
         } catch (err) {
             console.log(err);
-            res.send("Something went wrong!");
+            res.status(500).send("Something went wrong!");
         }
     },
 
@@ -21,10 +21,10 @@ module.exports = {
                 price: req.body.price,
             };
             const result = await product.createProduct(data);
-            res.send(result);
+            res.status(200).send(result);
         } catch (err) {
             console.log(err);
-            res.send("Something went wrong!");
+            res.status(500).send("Something went wrong!");
         }
     },
 
@@ -36,10 +36,10 @@ module.exports = {
                 value: req.body.value,
             };
             const result = await product.updateProduct(data);
-            res.send(result);
+            res.status(200).send(result);
         } catch (err) {
             console.log(err);
-            res.send("Something went wrong!");
+            res.status(500).send("Something went wrong!");
         }
     },
 
@@ -49,10 +49,10 @@ module.exports = {
                 id: req.params.id,
             };
             const result = await product.deleteProduct(data);
-            res.send(result);
+            res.status(200).send(result);
         } catch (err) {
             console.log(err);
-            res.send("Something went wrong!");
+            res.status(500).send("Something went wrong!");
         }
     },
 };

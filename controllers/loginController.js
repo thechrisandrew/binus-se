@@ -13,19 +13,16 @@ module.exports = {
 
 
 			if (!email || !password) {
-				res.status(400);
-				res.send({message : "Email/Password can't be empty"});
+				res.status(400).send({message : "Email/Password can't be empty"});
 			}
 
 			const queryResult = await user.auth(data);
 
 			if (queryResult == "") {
-				res.status(401);
-				res.send({message : "Email/Password incorrect"});
+				res.status(401).send({message : "Email/Password incorrect"});
 			} else {
 				if (!(await bcrypt.compare(data.password, queryResult[0].password))) {
-					res.status(401);
-					res.send({message : "Email/Password incorrect"});
+					res.status(401).send({message : "Email/Password incorrect"});
 				} else {
 					const id = queryResult[0].id;
 
@@ -44,8 +41,7 @@ module.exports = {
 						httpOnly: true,
 					};
 					res.cookie("jwt", token, cookieOptions);
-					res.status(200);
-					res.send({token : token});
+					res.status(200).send({token : token});
 				}
 			}
 		} catch (err) {

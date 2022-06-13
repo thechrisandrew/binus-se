@@ -50,18 +50,15 @@ module.exports = {
 					],
 				},
 			};
-			res.status(400);
-			res.send(checkRedudancyEmail ? message : validate);
+			res.status(400).send(checkRedudancyEmail ? message : validate);
 		} else {
 
 			try {
 				const result = await user.create(data);
-				res.status(200);
-                res.send({message : "Successfully registered user!"});
+				res.status(200).send({message : "Successfully registered user!"});
 			} catch (err) {
 				console.log("ERROR : " + err);
-				res.status(500);
-				res.send({message : err});
+				res.status(500).send({message : err});
 			}
 		}
 	},
