@@ -54,32 +54,19 @@ module.exports = {
 					],
 				},
 			};
-
-			// res.send(checkRedudancyEmail ? message["error"]["details"][0]["message"] : validate["error"]["details"][0]["message"]);
-
-			toast.messages.push({content: checkRedudancyEmail
-                ? message["error"]["details"][0]["message"]
-                : validate["error"]["details"][0]["message"], type: "error" }
-				
-			);
-
-			req.session.toast = toast;
-			res.redirect("/auth/register");
+			res.status(400);
+			res.send(checkRedudancyEmail ? message : validate);
 		} else {
 
 			try {
 				const result = await user.create(data);
-
-                toast.messages.push({content: "Successfully registered user!", type: "success"});
                 req.session.toast = toast;
-                
-				res.redirect("/auth/login");
+				res.status(200);
+                res.send({message : "Successfully registered user!"});
 			} catch (err) {
 				console.log("ERROR : " + err);
-				// toast.messages.push({content: "Something went wrong!", type: "error"});
-
-				req.session.toast = toast;
-				res.redirect("/auth/register");
+				res.status(500);
+				res.send({message : err});
 			}
 		}
 	},
