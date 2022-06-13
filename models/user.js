@@ -87,5 +87,68 @@ module.exports = {
                     );
             });
         });
-    }
+    },
+
+    selectStaffOnly: () => {
+        return new Promise((resolve, reject) => {
+            pool.getConnection(function (err, conn) {
+                if (err) console.log(err);
+                else
+                    conn.query(
+                        `SELECT id, email, firstName, lastName FROM users WHERE roleId = 2`,
+                        async (err, queryResult) => {
+                            if (err) {
+                                reject(err);
+                            } else {
+                                resolve(queryResult);
+                            }
+                        }
+                    );
+            });
+        });
+    },
+
+    updateStaff: (data) => {
+        return new Promise((resolve, reject) => {
+            pool.getConnection(function (err, conn) {
+                if (err) console.log(err);
+                else
+                    conn.query(
+                        `UPDATE users SET ?? = ? WHERE id = ?`,
+                        [
+                            data.key,
+                            data.value,
+                            data.id
+                        ],
+                        async (err, queryResult) => {
+                            if (err) {
+                                reject(err);
+                            } else {
+                                resolve(queryResult);
+                            }
+                        }
+                    );
+            });
+        });
+    },
+
+    delete: (id) => {
+        return new Promise((resolve, reject) => {
+            pool.getConnection(function (err, conn) {
+                if (err) console.log(err);
+                else
+                    conn.query(
+                        `DELETE FROM users WHERE id = ?`,
+                        [id],
+                        async (err, queryResult) => {
+                            if (err) {
+                                reject(err);
+                            } else {
+                                resolve(queryResult);
+                            }
+                        }
+                    );
+            });
+        });
+    },
 };
