@@ -3,11 +3,14 @@ const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const path = require("path");
+var cors = require("cors");
 require("dotenv").config();
 
 // initialize express app
 const app = express();
 const port = 3000;
+
+app.use(cors());
 
 // morgan for logging
 app.use(morgan("tiny"));
@@ -36,6 +39,7 @@ app.use("/auth/register", require("./routes/registerRoute"));
 app.use("/auth/login", require("./routes/loginRoute"));
 
 app.use("/staff", require("./routes/staffRoute"));
+app.use("/product", require("./routes/productRoute"));
 
 app.use("/", require("./routes/mainRoute"));
 
