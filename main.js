@@ -39,7 +39,10 @@ app.use("/auth/register", require("./routes/registerRoute"));
 app.use("/auth/login", require("./routes/loginRoute"));
 
 app.use("/staff", require("./routes/staffRoute"));
+
 app.use("/product", require("./routes/productRoute"));
+
+app.use("/checkout", require("./routes/checkoutRoute"));
 
 app.use("/", require("./routes/mainRoute"));
 
