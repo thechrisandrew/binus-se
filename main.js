@@ -20,6 +20,8 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static("public"));
 // parse urlencoded payloads
 app.use(express.urlencoded({ extended: true }));
+// parse json payloads
+app.use(express.json());
 
 // Application Routes
 app.use("/auth/register", require("./routes/registerRoute"));
@@ -32,7 +34,7 @@ app.use("/product", require("./routes/productRoute"));
 
 app.use("/checkout", require("./routes/checkoutRoute"));
 
-app.use("/", require("./routes/mainRoute"));
+// app.use("/", require("./routes/mainRoute"));
 
 // 404 Page Route
 app.use((req, res) => {

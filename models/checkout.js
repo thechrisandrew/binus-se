@@ -1,16 +1,32 @@
 const pool = require("../helpers/database");
 
 module.exports = {
-    createCheckout: function (data) {
+    createCheckoutHeader: function (id) {
         return new Promise((resolve, reject) => {
             pool.getConnection(function (err, conn) {
                 if (err) console.log(err);
-                else
+                else {
+                    conn.query(`INSERT INTO outboundHeader(userId) VALUES (?)`, [id], async (err, queryResult) => {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(queryResult);
+                        }
+                    });
+                }
+            });
+        });
+    },
+
+    createCheckoutDetail: function (data, headerId) {
+        return new Promise((resolve, reject) => {
+            pool.getConnection(function (err, conn) {
+                if (err) console.log(err);
+                else {
                     conn.query(
-                        `INSERT INTO products VALUES (?,?,?,?)`,
-                        [data.id, data.productName, data.quantity, data.price],
+                        `INSERT INTO outboundDetail VALUES (?, ?, ?)`,
+                        [headerId, data.productId, data.quantity],
                         async (err, queryResult) => {
-                            console.log(queryResult);
                             if (err) {
                                 reject(err);
                             } else {
@@ -18,6 +34,7 @@ module.exports = {
                             }
                         }
                     );
+                }
             });
         });
     },
