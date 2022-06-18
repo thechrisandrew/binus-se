@@ -3,14 +3,16 @@ const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const path = require("path");
 var cors = require("cors");
+
+// require .env file for secrets and configuration
 require("dotenv").config();
 
 // initialize express app
 const app = express();
 const port = 3000;
 
+// cors needed since 2 servers are used.
 app.use(cors());
-
 // morgan for logging
 app.use(morgan("tiny"));
 // set view engine to ejs
@@ -33,8 +35,6 @@ app.use("/staff", require("./routes/staffRoute"));
 app.use("/product", require("./routes/productRoute"));
 
 app.use("/checkout", require("./routes/checkoutRoute"));
-
-// app.use("/", require("./routes/mainRoute"));
 
 // 404 Page Route
 app.use((req, res) => {
