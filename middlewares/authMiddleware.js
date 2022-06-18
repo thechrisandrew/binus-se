@@ -7,15 +7,15 @@ const requireAuth = (req, res, next) => {
 		jwt.verify(token, process.env.JWT_KEY, (err, decodedToken) => {
 			if (err) {
 				console.log(err);
-				res.clearCookie("jwt");
-				res.redirect("/auth/login");
+				// res.clearCookie("jwt");
+				// res.redirect("/auth/login");
 			} else {
 				console.log(decodedToken);
 				next();
 			}
 		});
 	} else {
-		res.redirect("/auth/login");
+		// res.redirect("/auth/login");
 	}
 };
 
