@@ -36,6 +36,11 @@ app.use("/product", require("./routes/productRoute"));
 
 app.use("/checkout", require("./routes/checkoutRoute"));
 
+app.use("/history", require("./routes/transactionRoute"));
+
+app.use("/dashboard", require("./routes/dashboardRoute"));
+// app.use("/", require("./routes/mainRoute"));
+
 // 404 Page Route
 app.use((req, res) => {
 	res.status(404).send("404 Not Found");
