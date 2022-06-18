@@ -31,10 +31,13 @@ module.exports = {
 	updateProduct: async (req, res) => {
 		try {
 			const data = {
-				productId: req.params.productId,
-				key: req.body.key,
-				value: req.body.value,
+				productId: req.body.productId,
+				productName: req.body.productName,
+				productStock: req.body.productStock,
+				productPrice: req.body.productPrice,
+				oldProductId: req.params.productId,
 			};
+			console.log(data);
 			const result = await product.updateProduct(data);
 			res.status(200).send(result);
 		} catch (err) {
@@ -61,7 +64,8 @@ module.exports = {
 			const data = {
 				productId: req.params.productId,
 			};
-			const result = await product.deleteProduct(data);
+			console.log(data);
+			const result = await product.describeProduct(data);
 			res.status(200).send(result);
 		} catch (err) {
 			console.log(err);
