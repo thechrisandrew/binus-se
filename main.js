@@ -1,7 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
-const session = require("express-session");
 const path = require("path");
 var cors = require("cors");
 require("dotenv").config();
@@ -21,27 +20,21 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static("public"));
 // parse urlencoded payloads
 app.use(express.urlencoded({ extended: true }));
-// use cookie-parser
-app.use(cookieParser());
-
-app.use(
-	session({
-		secret: process.env.SESSION_SECRET,
-		resave: "false",
-		saveUninitialized: false,
-	})
-);
+// parse json payloads
+app.use(express.json());
 
 // Application Routes
-
 app.use("/auth/register", require("./routes/registerRoute"));
 
 app.use("/auth/login", require("./routes/loginRoute"));
 
 app.use("/staff", require("./routes/staffRoute"));
+
 app.use("/product", require("./routes/productRoute"));
 
-app.use("/", require("./routes/mainRoute"));
+app.use("/checkout", require("./routes/checkoutRoute"));
+
+// app.use("/", require("./routes/mainRoute"));
 
 // 404 Page Route
 app.use((req, res) => {

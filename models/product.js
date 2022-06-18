@@ -1,24 +1,20 @@
 const pool = require("../helpers/database");
 
 module.exports = {
-    
     listProduct: function (data) {
         return new Promise((resolve, reject) => {
             pool.getConnection(function (err, conn) {
                 if (err) console.log(err);
                 else
-                    conn.query(
-                        `SELECT * FROM products`,
-                        async (err, queryResult) => {
-                            pool.releaseConnection(conn);
-                            console.log(queryResult);
-                            if (err) {
-                                reject(err);
-                            } else {
-                                resolve(queryResult);
-                            }
+                    conn.query(`SELECT * FROM products WHERE productStock > 0`, async (err, queryResult) => {
+                        pool.releaseConnection(conn);
+                        console.log(queryResult);
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(queryResult);
                         }
-                    );
+                    });
             });
         });
     },
@@ -30,12 +26,7 @@ module.exports = {
                 else
                     conn.query(
                         `INSERT INTO products VALUES (?,?,?,?)`,
-                        [
-                            data.id, 
-                            data.productName, 
-                            data.quantity, 
-                            data.price
-                        ],
+                        [data.productId, data.productName, data.productStock, data.productPrice],
                         async (err, queryResult) => {
                             console.log(queryResult);
                             if (err) {
@@ -55,12 +46,8 @@ module.exports = {
                 if (err) console.log(err);
                 else
                     conn.query(
-                        `UPDATE products SET ?? = ? WHERE id = ?`,
-                        [
-                            data.key,
-                            data.value,
-                            data.id
-                        ],
+                        `UPDATE products SET ?? = ? WHERE productId = ?`,
+                        [data.key, data.value, data.productId],
                         async (err, queryResult) => {
                             console.log(queryResult);
                             if (err) {
@@ -73,27 +60,21 @@ module.exports = {
             });
         });
     },
-    
+
     deleteProduct: function (data) {
         return new Promise((resolve, reject) => {
             pool.getConnection(function (err, conn) {
                 if (err) console.log(err);
                 else
-                    conn.query(
-                        `DELETE FROM products WHERE id = ?`,
-                        [
-                            data.id
-                        ],
-                        async (err, queryResult) => {
-                            pool.releaseConnection(conn);
-                            console.log(queryResult);
-                            if (err) {
-                                reject(err);
-                            } else {
-                                resolve(queryResult);
-                            }
+                    conn.query(`DELETE FROM products WHERE productId = ?`, [data.productId], async (err, queryResult) => {
+                        pool.releaseConnection(conn);
+                        console.log(queryResult);
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(queryResult);
                         }
-                    );
+                    });
             });
         });
     },
