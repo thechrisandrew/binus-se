@@ -15,10 +15,10 @@ module.exports = {
     createProduct: async (req, res) => {
         try {
             const data = {
-                id: req.body.id,
+                productId: req.body.productId,
                 productName: req.body.productName,
-                quantity: req.body.quantity,
-                price: req.body.price,
+                productStock: req.body.productStock,
+                productPrice: req.body.productPrice,
             };
             const result = await product.createProduct(data);
             res.status(200).send(result);
@@ -31,7 +31,7 @@ module.exports = {
     updateProduct: async (req, res) => {
         try {
             const data = {
-                id: req.params.id,
+                productId: req.params.productId,
                 key: req.body.key,
                 value: req.body.value,
             };
@@ -46,7 +46,7 @@ module.exports = {
     deleteProduct: async (req, res) => {
         try {
             const data = {
-                id: req.params.id,
+                productId: req.params.productId,
             };
             const result = await product.deleteProduct(data);
             res.status(200).send(result);
