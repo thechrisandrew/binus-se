@@ -37,9 +37,9 @@ module.exports = {
 			roleId: 1,
 		};
 
-		const checkRedudancyEmail = (await user.checkEmail(data)) != "";
+		const checkRedudantEmail = (await user.checkEmail(data)) != "";
 
-		if (errorData || checkRedudancyEmail) {
+		if (errorData || checkRedudantEmail) {
 			// Biar mengikuti hasil dari joi
 			const message = {
 				error: {
@@ -50,15 +50,14 @@ module.exports = {
 					],
 				},
 			};
-			res.status(400).send(checkRedudancyEmail ? message : validate);
+			res.status(400).send(checkRedudantEmail ? message : validate);
 		} else {
-
 			try {
 				const result = await user.create(data);
-				res.status(200).send({message : "Successfully registered user!"});
+				res.status(200).send({ message: "Successfully registered user!" });
 			} catch (err) {
 				console.log("ERROR : " + err);
-				res.status(500).send({message : err});
+				res.status(500).send({ message: err });
 			}
 		}
 	},
