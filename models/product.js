@@ -46,8 +46,8 @@ module.exports = {
 				if (err) console.log(err);
 				else
 					conn.query(
-						`UPDATE products SET ?? = ? WHERE productId = ?`,
-						[data.key, data.value, data.productId],
+						`UPDATE products SET productId = ?, productName = ?, productStock = ?, productPrice = ? WHERE productId = ?`,
+						[data.productId, data.productName, data.productStock, data.productPrice, data.oldProductId],
 						async (err, queryResult) => {
 							console.log(queryResult);
 							if (err) {
