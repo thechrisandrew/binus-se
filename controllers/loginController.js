@@ -24,7 +24,7 @@ module.exports = {
 					res.status(401).send({ message: "Email/Password is incorrect" });
 				} else {
 					const id = queryResult[0].id;
-					const jwtexp = parseInt(process.env.JWT_EXPIRES);
+					const jwtexp = parseInt(process.env.JWT_EXPIRES_IN);
 					const token = jwt.sign(
 						{
 							id: id,
