@@ -5,6 +5,8 @@ const router = express.Router();
 router.post("/create", staffController.createStaff);
 router.post("/update/:id", staffController.updateStaff);
 router.post("/delete/:id", staffController.deleteStaff);
+router.get("/user/:id", staffController.selectOneUser);
 router.get("/", staffController.selectStaff);
+
 
 module.exports = router;

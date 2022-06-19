@@ -104,4 +104,50 @@ module.exports = {
 			});
 		});
 	},
+
+	updateStockProduct: function (data) {
+		return new Promise((resolve, reject) => {
+			pool.getConnection(function (err, conn) {
+				if (err) console.log(err);
+				else
+					conn.query(`
+						UPDATE products 
+						SET productStock = productStock - ? 
+						WHERE productId = ?`,
+						[data.quantity, data.productId],
+						async (err, queryResult) => {
+							console.log(queryResult);
+							if (err) {
+								reject(err);
+							} else {
+								resolve(queryResult);
+							}
+						}
+					);
+			});
+		});
+	},
+
+	getProductStock: async (data) => {
+		return new Promise((resolve, reject) => {
+			pool.getConnection(function (err, conn) {
+				if (err) console.log(err);
+				else
+					conn.query(`
+					SELECT productStock 
+					FROM products 
+					WHERE productId LIKE ?`, 
+					[data.productId],
+					 async (err, queryResult) => {
+						pool.releaseConnection(conn);
+						console.log(queryResult);
+						if (err) {
+							reject(err);
+						} else {
+							resolve(queryResult);
+						}
+					});
+			});
+		});
+	}
 };
