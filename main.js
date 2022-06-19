@@ -12,7 +12,7 @@ const app = express();
 const port = 3000;
 
 // cors needed since 2 servers are used.
-app.use(cors());
+app.use(cors("*"));
 // morgan for logging
 app.use(morgan("tiny"));
 // set view engine to ejs

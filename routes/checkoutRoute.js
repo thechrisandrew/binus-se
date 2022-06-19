@@ -3,7 +3,9 @@ const checkoutController = require("../controllers/checkoutController");
 const productController = require("../controllers/productController");
 const router = express.Router();
 
-router.get("/", productController.listProduct);
-router.post("/", checkoutController.createCheckout);
+const { requireAuth } = require("../middlewares/authMiddleware");
+
+router.get("/", requireAuth, productController.listProduct);
+router.post("/", requireAuth, checkoutController.createCheckout);
 
 module.exports = router;
