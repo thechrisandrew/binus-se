@@ -42,21 +42,5 @@ module.exports = {
             });
         });
     },
-
-    getGrandTotalTransaction: function (data) {
-        return new Promise((resolve, reject) => {
-            pool.getConnection(function (err, conn) {
-                if (err) console.log(err);
-                else {
-                    conn.query(`SELECT `, async (err, queryResult) => {
-                        if (err) {
-                            reject(err);
-                        } else {
-                            resolve(queryResult);
-                        }
-                    });
-                }
-            });
-        });
-    },
+    
 };

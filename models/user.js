@@ -113,11 +113,14 @@ module.exports = {
             pool.getConnection(function (err, conn) {
                 if (err) console.log(err);
                 else
-                    conn.query(
-                        `UPDATE users SET ?? = ? WHERE id = ?`,
+                    conn.query(`
+                        UPDATE users 
+                        SET email = ?, firstName = ?, lastName = ? 
+                        WHERE id = ?`,
                         [
-                            data.key,
-                            data.value,
+                            data.email,
+                            data.firstName,
+                            data.lastName,
                             data.id
                         ],
                         async (err, queryResult) => {
@@ -141,6 +144,29 @@ module.exports = {
                         `DELETE FROM users WHERE id = ?`,
                         [id],
                         async (err, queryResult) => {
+                            if (err) {
+                                reject(err);
+                            } else {
+                                resolve(queryResult);
+                            }
+                        }
+                    );
+            });
+        });
+    },
+
+    getUserById: function(id) {
+        return new Promise((resolve, reject) => {
+            pool.getConnection(function (err, conn) {
+                if (err) console.log(err);
+                else
+                    conn.query(
+                        `SELECT * FROM users WHERE id = ?`,
+                        [
+                            id
+                        ],
+                        async (err, queryResult) => {
+                            console.log(queryResult);
                             if (err) {
                                 reject(err);
                             } else {

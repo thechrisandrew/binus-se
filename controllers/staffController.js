@@ -74,9 +74,10 @@ module.exports = {
 
     updateStaff: async function (req, res) {
         const data = {
-            id      : req.params.id,
-            key     : req.body.key,
-            value   : req.body.value
+            id      	: req.params.id,
+            email     	: req.body.email,
+            firstName   : req.body.firstName,
+			lastName	: req.body.lastName
         };
         try{
             await user.updateStaff(data);
@@ -94,5 +95,15 @@ module.exports = {
         } catch (err) {
             res.status(500).send({message : err});
         }
-    }
+    },
+
+	selectOneUser: async (req, res) => {
+		const id = req.params.id;
+        try{
+            let result = await user.getUserById(id);
+            res.status(200).send(result);
+        } catch (err) {
+            res.status(500).send({message : err});
+        }
+	}
 };
