@@ -3,8 +3,8 @@ const bcrypt = require("bcrypt");
 const user = require("../models/user");
 
 module.exports = {
-    createStaff: async function (req, res){
-        const schema = Joi.object({
+	createStaff: async function (req, res) {
+		const schema = Joi.object({
 			email: Joi.string().email(),
 			password: Joi.string().min(8),
 			confirmPassword: Joi.any()
@@ -16,7 +16,7 @@ module.exports = {
 			roleId: Joi.number().required(),
 		});
 
-        const validate = schema.validate({
+		const validate = schema.validate({
 			email: req.body.email,
 			password: req.body.password,
 			confirmPassword: req.body.confirmPassword,
@@ -25,7 +25,7 @@ module.exports = {
 			roleId: 2,
 		});
 
-        const validData = validate["value"];
+		const validData = validate["value"];
 		const errorData = validate["error"];
 		const hashedPassword = await bcrypt.hash(validData.password, 10);
 
@@ -39,7 +39,7 @@ module.exports = {
 
 		const checkRedudancyEmail = (await user.checkEmail(data)) != "";
 
-        if (errorData || checkRedudancyEmail) {
+		if (errorData || checkRedudancyEmail) {
 			// Biar mengikuti hasil dari joi
 			const message = {
 				error: {
@@ -52,58 +52,57 @@ module.exports = {
 			};
 			res.status(400).send(checkRedudancyEmail ? message : validate);
 		} else {
-
 			try {
 				await user.create(data);
-				res.status(200).send({message : "Successfully registered staff!"});
+				res.status(200).send({ message: "Successfully registered staff!" });
 			} catch (err) {
 				// console.log("ERROR : " + err);
-				res.status(500).send({message : err});
+				res.status(500).send({ message: err });
 			}
 		}
-    },
+	},
 
-    selectStaff: async function (_, res) {
-        try{
-            const result = await user.selectStaffOnly();
-            res.status(200).send(result);
-        } catch (err) {
-            res.status(500).send({message : err});
-        }
-    },
+	selectStaff: async function (_, res) {
+		try {
+			const result = await user.selectStaffOnly();
+			res.status(200).send(result);
+		} catch (err) {
+			res.status(500).send({ message: err });
+		}
+	},
 
-    updateStaff: async function (req, res) {
-        const data = {
-            id      	: req.params.id,
-            email     	: req.body.email,
-            firstName   : req.body.firstName,
-			lastName	: req.body.lastName
-        };
-        try{
-            await user.updateStaff(data);
-            res.status(200).send({message : "Successfully updated staff!"});
-        } catch (err) {
-            res.status(500).send({message : err});
-        }
-    },
+	updateStaff: async function (req, res) {
+		const data = {
+			id: req.decodedToken.id,
+			email: req.body.email,
+			firstName: req.body.firstName,
+			lastName: req.body.lastName,
+		};
+		try {
+			await user.updateStaff(data);
+			res.status(200).send({ message: "Successfully updated staff!" });
+		} catch (err) {
+			res.status(500).send({ message: err });
+		}
+	},
 
-    deleteStaff: async function(req, res) {
-        const id = req.params.id;
-        try{
-            await user.delete(id);
-            res.status(200).send({message : "Successfully deleted staff!"});
-        } catch (err) {
-            res.status(500).send({message : err});
-        }
-    },
+	deleteStaff: async function (req, res) {
+		let id = req.decodedToken.id;
+		try {
+			await user.delete(id);
+			res.status(200).send({ message: "Successfully deleted staff!" });
+		} catch (err) {
+			res.status(500).send({ message: err });
+		}
+	},
 
 	selectOneUser: async (req, res) => {
-		const id = req.params.id;
-        try{
-            let result = await user.getUserById(id);
-            res.status(200).send(result);
-        } catch (err) {
-            res.status(500).send({message : err});
-        }
-	}
+		let id = req.decodedToken.id;
+		try {
+			let result = await user.getUserById(id);
+			res.status(200).send(result);
+		} catch (err) {
+			res.status(500).send({ message: err });
+		}
+	},
 };
